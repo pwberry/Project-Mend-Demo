@@ -1,14 +1,12 @@
 import Hero from "@/components/Hero";
 import FeatureCard from "@/components/FeatureCard";
-import render from "@/assets/cards/render.png";
-import journalImage from "@/assets/cards/journal_placeholder.jpg";
-import podcastImage from "@/assets/cards/podcast_placeholder.jpg";
-import newsImage from "@/assets/cards/news_placeholder.jpg";
+import journalImage from "@/assets/cards/mend_journal.png";
+import podcastImage from "@/assets/cards/podcast.png";
+import renderImage from "@/assets/cards/render_cover.png";
+import prisonAndTimeImage from "@/assets/cards/prison_and_time.png";
+import newsImage from "@/assets/cards/news_events.jpg";
 
 const About = () => {
-  // Prison and Time image will be provided by user
-  const prisonAndTime = "https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=800&h=600&fit=crop";
-
   return (
     <>
       <Hero />
@@ -38,7 +36,7 @@ const About = () => {
             <FeatureCard
               title="Special Issue: render"
               description="render, created by Writing and Rhetoric graduate Katherine Nikolau, celebrates the creative work and activism of nine justice-impacted artists, considering how composing can be healing after incarceration."
-              image={render}
+              image={renderImage}
               imageAlt="Cover of render special issue"
               link="https://surface.syr.edu/mendbooks/1/"
               external
@@ -48,7 +46,7 @@ const About = () => {
             <FeatureCard
               title="Artist-Writer Collaborations: Prison and Time"
               description="In 'Prison and Time,' Mend writer Marvin Wade and Evan Bode, an award-winning experimental animator, collaborate on a powerful film."
-              image={prisonAndTime}
+              image={prisonAndTimeImage}
               imageAlt="Prison and Time film still"
               link="https://vimeo.com/1124375859/d7a60f58dc?share=copy"
               external
