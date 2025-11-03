@@ -2,6 +2,7 @@ import syracuseLogo from "@/assets/footer/syracuse.png";
 import humanitiesNyLogo from "@/assets/footer/humanities_ny.png";
 import ccaLogo from "@/assets/footer/cca.png";
 import pinwheelLogo from "@/assets/footer/pinwheel.png";
+import { Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -31,9 +32,10 @@ const Footer = () => {
           />
         </div>
         
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-muted-foreground">
           <p>© {new Date().getFullYear()} Project Mend. All rights reserved.</p>
-          <div className="flex gap-6">
+          
+          <div className="flex flex-col sm:flex-row items-center gap-6">
             <a 
               href="mailto:contact@project-mend.net" 
               className="hover:text-primary transition-colors"
@@ -41,6 +43,30 @@ const Footer = () => {
             >
               contact@project-mend.net
             </a>
+            
+            <div className="flex items-center gap-4">
+              <span className="text-xs uppercase tracking-wider">Connect</span>
+              <div className="flex gap-3">
+                <a
+                  href="https://www.facebook.com/profile.php?id=100089772678410"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                  aria-label="Follow us on Facebook"
+                >
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a
+                  href="https://www.instagram.com/mend_syracuse/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
