@@ -6,17 +6,12 @@ const Hero = () => {
     <section className="w-full" style={{ maxHeight: "70vh" }}>
       <div className="grid md:grid-cols-2 h-full" style={{ minHeight: "500px", maxHeight: "70vh" }}>
         {/* Left: Text Content */}
-        <div className="flex flex-col justify-center px-6 md:px-12 lg:px-16 py-12 md:py-0 bg-background">
-          <div className="max-w-xl">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-6 leading-tight">
-              Project Mend
-            </h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 leading-relaxed">
-              Project Mend is a platform for systems-impacted creators. It includes Mend, an annual 
-              journal; a spoken word/podcast series; special issues; artist-writer collaborations; 
-              and updates on news and events.
+        <div className="flex flex-col justify-center items-center px-6 md:px-12 lg:px-16 py-12 md:py-0 bg-background">
+          <div className="max-w-xl text-center">
+            <p className="text-base md:text-lg text-muted-foreground mb-8 leading-relaxed">
+              Project Mend is a multimodal, grassroots-level, open-access national archive centered on the work of incarcerated and formerly incarcerated individuals and their communities.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 asChild 
                 size="lg"
@@ -49,7 +44,7 @@ const Hero = () => {
         </div>
 
         {/* Right: Slideshow */}
-        <div className="h-full min-h-[400px] md:min-h-0">
+        <div className="h-full min-h-[400px] md:min-h-0 overflow-hidden">
           <Slideshow />
         </div>
       </div>
