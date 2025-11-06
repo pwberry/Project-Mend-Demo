@@ -85,6 +85,7 @@ const teams: Record<string, Person[]> = {
   { name: "Bonnie Shoultz", role: "Editor", image: shoultzImg },
   { name: "Troy White", role: "Senior Editor", image: whiteImg },
   { name: "Gabriella Wilson", role: "Editor", image: willsonImg },
+  { name: "Patrick W. Berry", role: "Faculty Adviser", image: berry },
 ],
 "2024": [
   { name: "Jessie Anderson", role: "Editor", image: andersonImg },
