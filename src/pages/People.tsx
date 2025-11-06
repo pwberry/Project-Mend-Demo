@@ -1,14 +1,50 @@
 import { useParams, Navigate } from "react-router-dom";
-import bottingImg from "@/assets/people/botting.jpg";
-import ejariasImg from "@/assets/people/ejarias.jpg";
-import eilandImg from "@/assets/people/eiland.jpg";
-import kirkpatrickImg from "@/assets/people/kirkpatrick.jpg";
-import mcconnellImg from "@/assets/people/mcconnell.jpg";
-import nikolauImg from "@/assets/people/nikolau.jpg";
-import rodriguezImg from "@/assets/people/rodriguez.png";
-import shoultzImg from "@/assets/people/shoultz.jpg";
-import withersImg from "@/assets/people/withers.jpg";
-import whiteImg from "@/assets/people/white.jpg";
+// 2026 Team Images
+import bottingImg from "@/assets/people/2026/botting.jpg";
+import ejariasImg from "@/assets/people/2026/ejarias.jpg";
+import eilandImg from "@/assets/people/2026/eiland.jpg";
+import kirkpatrickImg from "@/assets/people/2026/kirkpatrick.jpg";
+import mcconnellImg from "@/assets/people/2026/mcconnell.jpg";
+import nikolauImg from "@/assets/people/2026/nikolau.jpg";
+import rodriguezImg from "@/assets/people/2026/rodriguez.jpg";
+import shoultzImg from "@/assets/people/2026/shoultz.jpg";
+import withersImg from "@/assets/people/2026/withers.jpg";
+import whiteImg from "@/assets/people/2026/white.jpg";
+import berry from "@/assets/people/2026/berry.jpg";
+
+//2025 Team Images
+import brownleeImg from "@/assets/people/2025/brownlee.jpg";
+import carrImg from "@/assets/people/2025/carr.jpg";
+import crosbyImg from "@/assets/people/2025/crosby.jpg";
+import huffImg from "@/assets/people/2025/huff.jpg";
+import jacksonImg from "@/assets/people/2025/jackson.jpg";
+import willsonImg from "@/assets/people/2025/willson.jpg";
+
+
+//2024 Team Images
+import andersonImg from "@/assets/people/2024/anderson.jpg";
+import buffordImg from "@/assets/people/2024/bufford.jpg";
+import gomezImg from "@/assets/people/2024/gomez.jpg";
+import moodyImg from "@/assets/people/2024/moody.jpg";
+import noelImg from "@/assets/people/2024/noel.jpg";
+import parisImg from "@/assets/people/2024/paris.jpg";
+import robinsonImg from "@/assets/people/2024/robinson.jpg";
+import seiblesImg from "@/assets/people/2024/seibles.jpg";
+import whitehurstImg from "@/assets/people/2024/whitehurst.jpg";
+import willacyImg from "@/assets/people/2024/willacy.jpg";
+import williamsImg from "@/assets/people/2024/williams.jpg";
+import thompkinsImg from "@/assets/people/2024/williams.jpg";
+
+
+// 2023 Team Images
+import bingsImg from "@/assets/people/2023/bings.jpg";
+import deansImg from "@/assets/people/2023/deans.jpg";
+import hardyImg from "@/assets/people/2023/hardy.jpg";
+import shawImg from "@/assets/people/2023/shaw.jpg";
+import titusImg from "@/assets/people/2023/titus.jpg";
+
+
+
 
 interface Person {
   name: string;
@@ -33,51 +69,52 @@ const teams: Record<string, Person[]> = {
     { name: "Bonnie Shoultz", role: "Editor", image: shoultzImg },
     { name: "Shilloh Withers", role: "Editor", image: withersImg },
     { name: "Troy White", role: "Senior Editor", image: whiteImg },
-    { name: "Patrick W. Berry", role: "Faculty Adviser", image: placeholderImage },
+    { name: "Patrick W. Berry", role: "Faculty Adviser", image: berry  },
   ],
-  "2025": [
-    { name: "Robin Brownlee", role: "Editor", image: "https://project-mend.net/images/brownlee.png" },
-    { name: "Rebecca Botting", role: "Editor", image: bottingImg },
-    { name: "Mary Carr", role: "Editor", image: "https://project-mend.net/images/carr.png" },
-    { name: "Charlee Crosby", role: "Editor", image: "https://project-mend.net/images/crosby.jpg" },
-    { name: "Tony Eiland", role: "Editor", image: eilandImg },
-    { name: "Sierra Huff", role: "Editor", image: "https://project-mend.net/images/huff.png" },
-    { name: "Freddie Jackson", role: "Editor", image: "https://project-mend.net/images/jackson.png" },
-    { name: "Molly McConnell", role: "Editor", image: mcconnellImg },
-    { name: "Katherine Nikolau", role: "Editor", image: nikolauImg },
-    { name: "Marion Rodriguez", role: "Editor", image: rodriguezImg },
-    { name: "Bonnie Shoultz", role: "Editor", image: shoultzImg },
-    { name: "Troy White", role: "Senior Editor", image: whiteImg },
-    { name: "Gabriella Wilson", role: "Editor", image: "https://project-mend.net/images/wilson.png" },
-    { name: "Patrick W. Berry", role: "Faculty Adviser", image: "https://project-mend.net/images/berry.png" },
-  ],
-  "2024": [
-    { name: "Jessie Anderson", role: "Editor", image: "https://project-mend.net/images/anderson.jpg" },
-    { name: "Montwella Bufford", role: "Editor", image: "https://project-mend.net/images/bufford.jpg" },
-    { name: "Ilhy Gomez Del Campo Rojas", role: "Editor", image: "https://project-mend.net/images/gomez.png" },
-    { name: "Vince Moody", role: "Editor", image: "https://project-mend.net/images/moody.png" },
-    { name: "Katherine Nikolau", role: "Editor", image: nikolauImg },
-    { name: "Daquan Noel", role: "Editor", image: "https://project-mend.net/images/noel.png" },
-    { name: "Troy Paris", role: "Editor", image: "https://project-mend.net/images/paris.jpg" },
-    { name: "Theodore Robinson", role: "Editor", image: "https://project-mend.net/images/robinson.png" },
-    { name: "James Seibles", role: "Editor", image: "https://project-mend.net/images/seibles.png" },
-    { name: "Jacqueline Thompkins", role: "Editor", image: "https://project-mend.net/images/thompson.png" },
-    { name: "Troy White", role: "Senior Editor", image: "https://project-mend.net/images/white.png" },
-    { name: "Sherba Whitehurst", role: "Editor", image: "https://project-mend.net/images/whitehurst.png" },
-    { name: "Michael J. Willacy", role: "Editor", image: "https://project-mend.net/images/willacy.png" },
-    { name: "Daquane Williams", role: "Editor", image: "https://project-mend.net/images/williams.png" },
-    { name: "Gabriella Wilson", role: "Editor", image: "https://project-mend.net/images/wilson.png" },
-    { name: "Patrick W. Berry", role: "Faculty Adviser", image: "https://project-mend.net/images/berry.png" },
-  ],
+"2025": [
+  { name: "Robin Brownlee", role: "Editor", image: brownleeImg },
+  { name: "Rebecca Botting", role: "Editor", image: bottingImg },
+  { name: "Mary Carr", role: "Editor", image: carrImg },
+  { name: "Charlee Crosby", role: "Editor", image: crosbyImg },
+  { name: "Tony Eiland", role: "Editor", image: eilandImg },
+  { name: "Sierra Huff", role: "Editor", image: huffImg },
+  { name: "Freddie Jackson", role: "Editor", image: jacksonImg },
+  { name: "Molly McConnell", role: "Editor", image: mcconnellImg },
+  { name: "Katherine Nikolau", role: "Editor", image: nikolauImg },
+  { name: "Marion Rodriguez", role: "Editor", image: rodriguezImg },
+  { name: "Bonnie Shoultz", role: "Editor", image: shoultzImg },
+  { name: "Troy White", role: "Senior Editor", image: whiteImg },
+  { name: "Gabriella Wilson", role: "Editor", image: willsonImg },
+],
+"2024": [
+  { name: "Jessie Anderson", role: "Editor", image: andersonImg },
+  { name: "Montwella Bufford", role: "Editor", image: buffordImg },
+  { name: "Ilhy Gomez Del Campo Rojas", role: "Editor", image: gomezImg },
+  { name: "Vince Moody", role: "Editor", image: moodyImg },
+  { name: "Katherine Nikolau", role: "Editor", image: nikolauImg },
+  { name: "Daquan Noel", role: "Editor", image: noelImg },
+  { name: "Troy Paris", role: "Editor", image: parisImg },
+  { name: "Theodore Robinson", role: "Editor", image: robinsonImg },
+  { name: "James Seibles", role: "Editor", image: seiblesImg },
+  { name: "Jacqueline Thompkins", role: "Editor", image: thompkinsImg }, 
+  { name: "Troy White", role: "Senior Editor", image: whiteImg }, 
+  { name: "Sherba Whitehurst", role: "Editor", image: whitehurstImg },
+  { name: "Michael J. Willacy", role: "Editor", image: willacyImg },
+  { name: "Daquane Williams", role: "Editor", image: williamsImg },
+  { name: "Gabriella Wilson", role: "Editor", image: willsonImg }, 
+  { name: "Patrick W. Berry", role: "Faculty Adviser", image: berry },
+],
+
   "2023": [
-    { name: "Fátima Bings Martínez", role: "Editor", image: "https://project-mend.net/images/bings.png" },
-    { name: "Karl Deans", role: "Editor", image: "https://project-mend.net/images/deans.png" },
-    { name: "Luke Hardy", role: "Editor", image: "https://project-mend.net/images/hardy.png" },
-    { name: "Brian T. Shaw", role: "Editor", image: "https://project-mend.net/images/shaw.png" },
-    { name: "Cherise Hunter Titus", role: "Editor", image: "https://project-mend.net/images/titus.png" },
-    { name: "Troy White", role: "Editor", image: "https://project-mend.net/images/white.png" },
-    { name: "Patrick W. Berry", role: "Faculty Adviser", image: "https://project-mend.net/images/berry.png" },
+    { name: "Fátima Bings Martínez", role: "Editor", image: bingsImg },
+    { name: "Karl Deans", role: "Editor", image: deansImg },
+    { name: "Luke Hardy", role: "Editor", image: hardyImg },
+    { name: "Brian T. Shaw", role: "Editor", image: shawImg },
+    { name: "Cherise Hunter Titus", role: "Editor", image: titusImg },
+    { name: "Troy White", role: "Editor", image: whiteImg },
+    { name: "Patrick W. Berry", role: "Faculty Adviser", image: berry },
   ],
+
 };
 
 const People = () => {
