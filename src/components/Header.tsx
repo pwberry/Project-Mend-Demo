@@ -1,11 +1,21 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import logo from "@/assets/project_mend_logo_purple.png";
 
 const navItems = [
   { label: "About", path: "/" },
-  { label: "People", path: "/people" },
+  { 
+    label: "People", 
+    path: "/people/2026",
+    hasDropdown: true,
+    dropdownItems: [
+      { label: "2026", path: "/people/2026" },
+      { label: "2025", path: "/people/2025" },
+      { label: "2024", path: "/people/2024" },
+      { label: "2023", path: "/people/2023" },
+    ]
+  },
   { label: "Submit", path: "/submit" },
   { label: "Mend", path: "/mend" },
   { label: "Join Editorial Team", path: "/join" },
@@ -14,9 +24,16 @@ const navItems = [
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => location.pathname === path;
+  const isDropdownActive = (item: any) => {
+    if (item.hasDropdown) {
+      return item.dropdownItems?.some((dropItem: any) => location.pathname === dropItem.path);
+    }
+    return false;
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border">
@@ -33,20 +50,61 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-1 lg:gap-2" aria-label="Main navigation">
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`px-3 lg:px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                  isActive(item.path)
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-secondary hover:text-secondary-foreground"
-                }`}
-                aria-current={isActive(item.path) ? "page" : undefined}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              if (item.hasDropdown) {
+                return (
+                  <div 
+                    key={item.path} 
+                    className="relative"
+                    onMouseEnter={() => setDropdownOpen(true)}
+                    onMouseLeave={() => setDropdownOpen(false)}
+                  >
+                    <Link
+                      to={item.path}
+                      className={`px-3 lg:px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 flex items-center gap-1 ${
+                        isDropdownActive(item)
+                          ? "bg-primary text-primary-foreground"
+                          : "text-foreground hover:bg-secondary hover:text-secondary-foreground"
+                      }`}
+                    >
+                      {item.label}
+                      <ChevronDown size={16} />
+                    </Link>
+                    {dropdownOpen && (
+                      <div className="absolute top-full left-0 mt-1 bg-background border border-border rounded-md shadow-lg min-w-[120px] z-50">
+                        {item.dropdownItems?.map((dropItem: any) => (
+                          <Link
+                            key={dropItem.path}
+                            to={dropItem.path}
+                            className={`block px-4 py-2 text-sm transition-colors ${
+                              isActive(dropItem.path)
+                                ? "bg-primary text-primary-foreground"
+                                : "text-foreground hover:bg-secondary"
+                            }`}
+                          >
+                            {dropItem.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`px-3 lg:px-4 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    isActive(item.path)
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground hover:bg-secondary hover:text-secondary-foreground"
+                  }`}
+                  aria-current={isActive(item.path) ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
 
           {/* Mobile Menu Button */}
@@ -66,21 +124,47 @@ const Header = () => {
             className="md:hidden mt-4 pb-4 border-t border-border pt-4"
             aria-label="Mobile navigation"
           >
-            {navItems.map((item) => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`block px-4 py-3 rounded-md text-sm font-medium transition-colors duration-200 ${
-                  isActive(item.path)
-                    ? "bg-primary text-primary-foreground"
-                    : "text-foreground hover:bg-secondary"
-                }`}
-                onClick={() => setMobileMenuOpen(false)}
-                aria-current={isActive(item.path) ? "page" : undefined}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navItems.map((item) => {
+              if (item.hasDropdown) {
+                return (
+                  <div key={item.path}>
+                    <div className="px-4 py-2 text-sm font-medium text-muted-foreground">
+                      {item.label}
+                    </div>
+                    {item.dropdownItems?.map((dropItem: any) => (
+                      <Link
+                        key={dropItem.path}
+                        to={dropItem.path}
+                        className={`block px-8 py-2 rounded-md text-sm transition-colors duration-200 ${
+                          isActive(dropItem.path)
+                            ? "bg-primary text-primary-foreground"
+                            : "text-foreground hover:bg-secondary"
+                        }`}
+                        onClick={() => setMobileMenuOpen(false)}
+                        aria-current={isActive(dropItem.path) ? "page" : undefined}
+                      >
+                        {dropItem.label}
+                      </Link>
+                    ))}
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`block px-4 py-3 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    isActive(item.path)
+                      ? "bg-primary text-primary-foreground"
+                      : "text-foreground hover:bg-secondary"
+                  }`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  aria-current={isActive(item.path) ? "page" : undefined}
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </nav>
         )}
       </div>
