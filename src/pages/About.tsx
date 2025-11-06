@@ -14,7 +14,7 @@ const About = () => {
       
       {/* Features Section */}
       <section className="py-16 md:py-24 bg-background">
-        <div className="container mx-auto px-4 md:px-6 pr-[1in]">
+        <div className="container mx-auto px-4 md:px-6 pr-[1in] pl-4 md:pl-6">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
             {/* Row 1: 3 cards */}
             <FeatureCard
@@ -74,7 +74,7 @@ const About = () => {
 
       {/* About Project Mend Section */}
       <section className="py-16 md:py-24 bg-secondary/30">
-        <div className="container mx-auto px-4 md:px-6 pr-[1in] max-w-4xl">
+        <div className="container mx-auto px-4 md:px-6 pr-[1in] pl-4 md:pl-6 max-w-4xl">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-8">
             About Project Mend
           </h2>

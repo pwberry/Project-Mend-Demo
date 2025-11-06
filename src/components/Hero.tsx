@@ -44,7 +44,7 @@ const Hero = () => {
         </div>
 
         {/* Right: Slideshow */}
-        <div className="h-full min-h-[400px] md:min-h-0 overflow-hidden">
+        <div className="h-full min-h-[400px] md:min-h-0 overflow-hidden pr-[1in]">
           <Slideshow />
         </div>
       </div>
