@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import submitImage from "@/assets/submit_to_mend.png";
+import submitImage from "@/assets/BrianHindson.jpg";
 
 const Submit = () => {
   return (
