@@ -16,7 +16,7 @@ const Submit = () => {
               <img 
                 src={submitImage} 
                 alt="Submit to Mend - Artwork by Brian Hindson, Intertext 2023" 
-                className="w-full h-auto rounded-lg border-2 border-border"
+                className="w-1/2 h-auto rounded-lg border-2 border-border"
               />
             </div>
             <div className="flex items-center">
