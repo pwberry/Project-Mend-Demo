@@ -17,7 +17,7 @@ const navItems = [
     ]
   },
   { label: "Submit", path: "/submit" },
-  { label: "Mend", path: "/mend" },
+  { label: "Mend, The Journal", path: "https://surface.syr.edu/mend/", external: true },
   { label: "Join Editorial Team", path: "/join" },
   { label: "News", path: "/news" },
 ];
@@ -34,6 +34,7 @@ const Header = () => {
     }
     return false;
   };
+
 
   return (
     <header className="sticky top-0 z-50 w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80 border-b border-border">
