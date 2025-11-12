@@ -19,7 +19,7 @@ const navItems = [
   { label: "Submit", path: "/submit" },
   { label: "Mend, The Journal", path: "https://surface.syr.edu/mend/", external: true },
   { label: "Join Editorial Team", path: "/join" },
-  { label: "News", path: "/news" },
+  { label: "News & Events", path: "/news" },
 ];
 
 const Header = () => {
