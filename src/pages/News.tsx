@@ -212,7 +212,7 @@ const News = () => {
 
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="max-w-7xl mx-auto">
-          {/* Featured Articles Section - Alternating Grid Layout */}
+          {/* Featured Articles Section - Grid Layout */}
           {featuredArticles.length > 0 && (
             <section className="mb-16">
               <h2 className="text-3xl font-bold text-foreground mb-8">Featured Stories</h2>
@@ -220,20 +220,20 @@ const News = () => {
                 {featuredArticles.map((article, index) => (
                   <article
                     key={article.id}
-                    className={`group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${
-                      index % 2 === 1 ? "lg:grid-flow-dense" : ""
+                    className={`grid grid-cols-1 lg:grid-cols-[300px,1fr] gap-6 border-b border-border pb-12 last:border-0 ${
+                      index % 2 === 1 ? "lg:grid-cols-[1fr,300px]" : ""
                     }`}
                   >
                     {article.image && (
-                      <div className={`overflow-hidden rounded-lg ${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
+                      <div className={`overflow-hidden rounded-lg h-[300px] ${index % 2 === 1 ? "lg:order-2" : ""}`}>
                         <img
                           src={article.image}
                           alt={article.title}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          className="w-full h-full object-cover"
                         />
                       </div>
                     )}
-                    <div className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
+                    <div className={index % 2 === 1 ? "lg:order-1" : ""}>
                       <div className="flex items-center gap-3 mb-3">
                         <Badge variant={getCategoryColor(article.category)}>
                           {article.category}
@@ -243,13 +243,12 @@ const News = () => {
                           <time dateTime={article.date}>{article.date}</time>
                         </div>
                       </div>
-                      <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
+                      <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
                         {article.title}
                       </h3>
-                      <p className="text-muted-foreground mb-6 leading-relaxed">{article.excerpt}</p>
-                      <Button variant="link" className="p-0 h-auto gap-2">
-                        Read full article <ExternalLink size={16} />
-                      </Button>
+                      <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                        {article.content}
+                      </div>
                     </div>
                   </article>
                 ))}
@@ -268,27 +267,31 @@ const News = () => {
             </TabsList>
 
             <TabsContent value={selectedCategory} className="mt-8">
-              {/* Articles Alternating Grid */}
+              {/* Articles Grid */}
               {paginatedArticles.length > 0 ? (
                 <>
                   <div className="space-y-12 mb-12">
                     {paginatedArticles.map((article, index) => (
                       <article
                         key={article.id}
-                        className={`group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-border pb-12 last:border-0 ${
-                          index % 2 === 1 ? "lg:grid-flow-dense" : ""
+                        className={`grid grid-cols-1 lg:grid-cols-[300px,1fr] gap-6 border-b border-border pb-12 last:border-0 ${
+                          index % 2 === 1 ? "lg:grid-cols-[1fr,300px]" : ""
                         }`}
                       >
-                        {article.image && (
-                          <div className={`overflow-hidden rounded-lg ${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
+                        {article.image ? (
+                          <div className={`overflow-hidden rounded-lg h-[300px] ${index % 2 === 1 ? "lg:order-2" : ""}`}>
                             <img
                               src={article.image}
                               alt={article.title}
-                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                              className="w-full h-full object-cover"
                             />
                           </div>
+                        ) : (
+                          <div className={`bg-muted rounded-lg h-[300px] flex items-center justify-center ${index % 2 === 1 ? "lg:order-2" : ""}`}>
+                            <p className="text-muted-foreground text-sm">No image</p>
+                          </div>
                         )}
-                        <div className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
+                        <div className={index % 2 === 1 ? "lg:order-1" : ""}>
                           <div className="flex items-center gap-3 mb-3">
                             <Badge variant={getCategoryColor(article.category)}>
                               {article.category}
@@ -298,13 +301,12 @@ const News = () => {
                               <time dateTime={article.date}>{article.date}</time>
                             </div>
                           </div>
-                          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3">
                             {article.title}
                           </h3>
-                          <p className="text-muted-foreground mb-4 leading-relaxed">{article.excerpt}</p>
-                          <Button variant="link" className="p-0 h-auto gap-2">
-                            Read full article <ExternalLink size={16} />
-                          </Button>
+                          <div className="text-muted-foreground leading-relaxed whitespace-pre-line">
+                            {article.content}
+                          </div>
                         </div>
                       </article>
                     ))}
