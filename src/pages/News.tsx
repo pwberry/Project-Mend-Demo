@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Calendar, Search } from "lucide-react";
+import { Calendar, ExternalLink, Instagram } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,6 +15,10 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 import { useToast } from "@/hooks/use-toast";
+import launchPartyImage from "@/assets/news/launch_party_2025.png";
+import alexAndersonImage from "@/assets/news/alex_anderson.png";
+import mendTeamImage from "@/assets/news/mend_team_2024.jpg";
+import unitedWeEndRacismImage from "@/assets/news/united_we_end_racism.jpg";
 
 interface Article {
   id: string;
@@ -28,48 +32,103 @@ interface Article {
   featured: boolean;
 }
 
-// TODO: Replace this with actual articles from the legacy news page
 const articles: Article[] = [
   {
     id: "1",
-    title: "New Issue of Mend Released",
-    date: "November 15, 2024",
+    title: "Celebrating the 2025 Issue of Mend",
+    date: "February 15, 2025",
     category: "Featured",
-    excerpt: "We're thrilled to announce the release of our latest issue, featuring powerful works from 25 systems-impacted creators.",
-    content: "Full article content here...",
-    slug: "new-issue-mend-released",
+    excerpt: "It's hard to believe that we have completed the third issue of Mend, a publication showcasing the writing and art of those impacted by the criminal legal system.",
+    content: `It's hard to believe that we have completed the third issue of Mend, a publication showcasing the writing and art of those impacted by the criminal legal system.
+
+Our launch party will be a hybrid event, where we will celebrate the 2025 issue of Mend and render, a new publication exploring the lives and creative works of impacted artists produced by Katherine Nikolau, a Writing and Rhetoric major who graduated in December through a SOURCE research grant.
+
+**Date:** Saturday, February 15
+**Time:** 12:00 p.m. - 1:30 p.m. ET
+**Location:** Syracuse Central Library, Community Room, 447 S. Salina St., Syracuse, NY 13202 and via Zoom
+
+This event will include a light lunch.
+
+Project Mend is made possible through collaboration with the Center for Community Alternatives and through an HNY Post-Incarceration Humanities Partnership, which is generously supported by the Mellon Foundation. Additionally, the project has been supported at Syracuse University by: Engaged Humanities Network, The Humanities Center, SOURCE, Syracuse University Libraries, and the Department of Writing Studies, Rhetoric, and Composition.
+
+For accommodations or more information: Contact Patrick W. Berry at pwberry@syr.edu by February 11.`,
+    slug: "celebrating-2025-issue-mend",
     featured: true,
-    image: "/placeholder.svg"
+    image: launchPartyImage
   },
   {
     id: "2",
-    title: "Community Reading Event",
-    date: "October 28, 2024",
+    title: "HNY Post-Incarceration Humanities Partnership Convening",
+    date: "May 21, 2024",
     category: "Our News",
-    excerpt: "Join us for an evening of readings from Mend contributors, followed by a panel discussion on art and justice.",
-    content: "Full article content here...",
-    slug: "community-reading-event",
+    excerpt: "Humanities New York hosted an in-person convening for our Post-Incarceration Humanities Partnership (PIHP) grant cohort members.",
+    content: "On May 21, 2024, Humanities New York hosted an in-person convening for our Post-Incarceration Humanities Partnership (PIHP) grant cohort members, bringing together organizations working to support returning citizens through humanities programming.",
+    slug: "hny-pihp-convening",
     featured: false,
   },
   {
     id: "3",
-    title: "Podcast Series Launch",
-    date: "September 10, 2024",
-    category: "Featured",
-    excerpt: "Coming soon: The Project Mend Podcast, where editors and contributors discuss themes from our archive.",
-    content: "Full article content here...",
-    slug: "podcast-series-launch",
+    title: "Alex Anderson Visit: Reentry Theater of Harlem",
+    date: "September 19, 2024",
+    category: "Our News",
+    excerpt: "Delighted to have Alex Anderson from Reentry Theater of Harlem join us on Thursday, September 19.",
+    content: `Alex Anderson, Art Director of Reentry Theater of Harlem (RTH), presents a screening of a powerful rite of passage ceremony involving returning citizens. Participants will learn how RTH utilizes the arts, rituals and rites of passage to foster true reintegration and disrupt the carceral practices that perpetuate recidivism.
+
+**Public Talk: "Reentry Theater of Harlem: A Homecoming Rite of Passage Program"**
+- Thursday, September 19
+- 12:30-1:50 PM
+- 500 Hall of Languages & via Zoom
+
+**RSVP Stigma-Mask Making Workshop**
+In this workshop, Alex Anderson presents a short film on the process of creating a stigma mask. Participants will create their own masks and have the opportunity to compose an accompanying poem or monologue.
+- Thursday, September 19
+- 6-7:30 PM
+- Schine 228
+
+**About Alex Anderson**
+Alex Anderson is the founder and executive director of Reentry Theater of Harlem (RTH). Alex, a returning citizen himself, earned a Bachelor of Arts degree from Syracuse University while incarcerated at Auburn Correctional Facility. Upon his release, he obtained a Social Work degree from the Silberman Graduate School of Social Work at Hunter College, alongside certifications in mental health, substance use counseling (CASAC) and restorative justice. Inspired by his own transformative journey, Alex channeled his love for his community and the arts into creating RTH, where the arts and lived experience serve as a catalyst for healing and transformation.
+
+Cosponsors: Writing Studies, Rhetoric, and Composition, Project Mend, the Engaged Humanities Network, and the Syracuse University Humanities Center. Project Mend is made possible through collaboration with the Center for Community Alternatives and from an HNY Post-Incarceration Humanities Partnership, which is generously supported by the Mellon Foundation.`,
+    slug: "alex-anderson-visit",
     featured: true,
+    image: alexAndersonImage
   },
   {
     id: "4",
-    title: "Workshop Series: Creative Writing in the Justice System",
-    date: "August 5, 2024",
+    title: "Congratulations to Mend Editor Ilhy Gomez",
+    date: "May 2024",
     category: "Client Stories",
-    excerpt: "Our team facilitated a month-long creative writing workshop series at local correctional facilities.",
-    content: "Full article content here...",
-    slug: "workshop-series-creative-writing",
+    excerpt: "Celebrating the achievements of our dedicated Mend editorial team member.",
+    content: "Congratulations to Mend editor Ilhy Gomez Del Campo Rojas for their outstanding contributions to the 2024 issue and continued dedication to amplifying the voices of those impacted by the criminal legal system.",
+    slug: "congratulations-ilhy-gomez",
     featured: false,
+    image: mendTeamImage
+  },
+  {
+    id: "5",
+    title: "United We End Racism Community Festival",
+    date: "June 8, 2024",
+    category: "Our News",
+    excerpt: "On June 8th, 2024, Project Mend had the great opportunity of participating in the community festival United We End Racism.",
+    content: `On June 8th, 2024, Project Mend had the great opportunity of participating in the community festival United We End Racism, presented by Syracuse University and El-Hindi Center for Dialogue and Action.
+
+**24th Annual Racial Justice Awards & Duck Race to End Racism**
+
+The event featured:
+- Family activities and games
+- Decorated duck contests
+- Performance stage
+- Booths - food and youth focus
+- STEM Fair | SU Engineering
+- Food vendors
+- Fun run
+- And more!
+
+**Date:** Saturday, June 8th, 10am-2pm
+**Location:** Syracuse Inner Harbor`,
+    slug: "united-we-end-racism-festival",
+    featured: false,
+    image: unitedWeEndRacismImage
   },
 ];
 
@@ -135,27 +194,38 @@ const News = () => {
             <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
               News & Events
             </h1>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-muted-foreground mb-6">
               Stay updated on Project Mend announcements, events, and community happenings
             </p>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => window.open("https://www.instagram.com/projectmend/", "_blank")}
+              className="gap-2"
+            >
+              <Instagram size={20} />
+              Follow us on Instagram
+            </Button>
           </div>
         </div>
       </div>
 
       <div className="container mx-auto px-4 md:px-6 py-12">
         <div className="max-w-7xl mx-auto">
-          {/* Featured Articles Section */}
+          {/* Featured Articles Section - Alternating Grid Layout */}
           {featuredArticles.length > 0 && (
             <section className="mb-16">
-              <h2 className="text-3xl font-bold text-foreground mb-8">Featured</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {featuredArticles.slice(0, 2).map((article) => (
+              <h2 className="text-3xl font-bold text-foreground mb-8">Featured Stories</h2>
+              <div className="space-y-12">
+                {featuredArticles.map((article, index) => (
                   <article
                     key={article.id}
-                    className="group bg-card border border-border rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary/30"
+                    className={`group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center ${
+                      index % 2 === 1 ? "lg:grid-flow-dense" : ""
+                    }`}
                   >
                     {article.image && (
-                      <div className="aspect-video overflow-hidden bg-muted">
+                      <div className={`overflow-hidden rounded-lg ${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
                         <img
                           src={article.image}
                           alt={article.title}
@@ -163,7 +233,7 @@ const News = () => {
                         />
                       </div>
                     )}
-                    <div className="p-6">
+                    <div className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
                       <div className="flex items-center gap-3 mb-3">
                         <Badge variant={getCategoryColor(article.category)}>
                           {article.category}
@@ -173,12 +243,12 @@ const News = () => {
                           <time dateTime={article.date}>{article.date}</time>
                         </div>
                       </div>
-                      <h3 className="text-2xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+                      <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4 group-hover:text-primary transition-colors">
                         {article.title}
                       </h3>
-                      <p className="text-muted-foreground mb-4">{article.excerpt}</p>
-                      <Button variant="link" className="p-0 h-auto">
-                        Read more →
+                      <p className="text-muted-foreground mb-6 leading-relaxed">{article.excerpt}</p>
+                      <Button variant="link" className="p-0 h-auto gap-2">
+                        Read full article <ExternalLink size={16} />
                       </Button>
                     </div>
                   </article>
@@ -198,45 +268,53 @@ const News = () => {
             </TabsList>
 
             <TabsContent value={selectedCategory} className="mt-8">
-              {/* Articles Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-                {paginatedArticles.map((article) => (
-                  <article
-                    key={article.id}
-                    className="group bg-card border border-border rounded-lg overflow-hidden transition-all duration-300 hover:shadow-lg hover:border-primary/30"
-                  >
-                    {article.image && (
-                      <div className="aspect-video overflow-hidden bg-muted">
-                        <img
-                          src={article.image}
-                          alt={article.title}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                      </div>
-                    )}
-                    <div className="p-5">
-                      <div className="flex items-center gap-2 mb-3">
-                        <Badge variant={getCategoryColor(article.category)} className="text-xs">
-                          {article.category}
-                        </Badge>
-                      </div>
-                      <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-                        {article.title}
-                      </h3>
-                      <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                        <Calendar size={12} />
-                        <time dateTime={article.date}>{article.date}</time>
-                      </div>
-                      <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                        {article.excerpt}
-                      </p>
-                      <Button variant="link" className="p-0 h-auto text-sm">
-                        Read more →
-                      </Button>
-                    </div>
-                  </article>
-                ))}
-              </div>
+              {/* Articles Alternating Grid */}
+              {paginatedArticles.length > 0 ? (
+                <>
+                  <div className="space-y-12 mb-12">
+                    {paginatedArticles.map((article, index) => (
+                      <article
+                        key={article.id}
+                        className={`group grid grid-cols-1 lg:grid-cols-2 gap-8 items-center border-b border-border pb-12 last:border-0 ${
+                          index % 2 === 1 ? "lg:grid-flow-dense" : ""
+                        }`}
+                      >
+                        {article.image && (
+                          <div className={`overflow-hidden rounded-lg ${index % 2 === 1 ? "lg:col-start-2" : ""}`}>
+                            <img
+                              src={article.image}
+                              alt={article.title}
+                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                            />
+                          </div>
+                        )}
+                        <div className={index % 2 === 1 ? "lg:col-start-1 lg:row-start-1" : ""}>
+                          <div className="flex items-center gap-3 mb-3">
+                            <Badge variant={getCategoryColor(article.category)}>
+                              {article.category}
+                            </Badge>
+                            <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                              <Calendar size={14} />
+                              <time dateTime={article.date}>{article.date}</time>
+                            </div>
+                          </div>
+                          <h3 className="text-xl md:text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                            {article.title}
+                          </h3>
+                          <p className="text-muted-foreground mb-4 leading-relaxed">{article.excerpt}</p>
+                          <Button variant="link" className="p-0 h-auto gap-2">
+                            Read full article <ExternalLink size={16} />
+                          </Button>
+                        </div>
+                      </article>
+                    ))}
+                  </div>
+                </>
+              ) : (
+                <div className="text-center py-12">
+                  <p className="text-muted-foreground">No articles found in this category.</p>
+                </div>
+              )}
 
               {/* Pagination */}
               {totalPages > 1 && (
